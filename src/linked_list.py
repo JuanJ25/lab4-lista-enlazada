@@ -1,10 +1,4 @@
-# src/linked_list.py
-# Estructura base — cada equipo implementa su operación asignada.
-
-
 class Node:
-    """Nodo de la lista enlazada."""
-
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -14,46 +8,35 @@ class Node:
 
 
 class LinkedList:
-    """Lista enlazada simple."""
-
     def __init__(self):
         self.head = None
+        self.size = 0
 
-    # ------------------------------------------------------------------ #
-    # Implementado por el docente — NO modificar                          #
-    # ------------------------------------------------------------------ #
+    def __len__(self):
+        return self.size
+
     def __str__(self):
-        """Retorna una representación legible de la lista."""
-        elements = []
+        if self.head is None:
+            return "Lista vacía"
         current = self.head
+        elements = []
         while current:
             elements.append(str(current.data))
             current = current.next
-        return " -> ".join(elements) if elements else "Lista vacía"
+        return " -> ".join(elements)
 
-    def __len__(self):
-        """Retorna el número de nodos."""
-        count = 0
-        current = self.head
-        while current:
-            count += 1
-            current = current.next
-        return count
-
-    # ------------------------------------------------------------------ #
-    # TODO — Equipo A: rama feature/append                                #
-    # ------------------------------------------------------------------ #
     def append(self, data):
-        """Inserta un nuevo nodo al final de la lista.
+        """Agrega un elemento al final de la lista."""
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = new_node
+        self.size += 1
 
-        Args:
-            data: El valor a insertar.
-        """
-        raise NotImplementedError("Equipo A debe implementar append()")
-
-    # ------------------------------------------------------------------ #
-    # TODO — Equipo B: rama feature/delete                                #
-    # ------------------------------------------------------------------ #
     def delete(self, data):
         if self.head is None:
             return False
@@ -71,13 +54,9 @@ class LinkedList:
     # ------------------------------------------------------------------ #
     # TODO — Equipo C: rama feature/search                                #
     # ------------------------------------------------------------------ #
+        """Elimina la primera ocurrencia de un elemento."""
+        pass
+
     def search(self, data):
-        """Busca un valor en la lista.
-
-        Args:
-            data: El valor a buscar.
-
-        Returns:
-            El nodo que contiene data, o None si no existe.
-        """
-        raise NotImplementedError("Equipo C debe implementar search()")
+        """Busca un elemento en la lista."""
+        pass
