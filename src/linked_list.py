@@ -53,26 +53,20 @@ class LinkedList:
             current = current.next
         return False
 
-    # ------------------------------------------------------------------ #
-    # TODO — Equipo C: rama feature/search                                #
-    # ------------------------------------------------------------------ #
-        """Elimina la primera ocurrencia de un elemento."""
-        pass
-
     def search(self, data):
-            """Busca un valor en la lista.
+        """Busca un valor en la lista.
 
-            Args:
-                data: El valor a buscar.
+        Args:
+            data: El valor a buscar.
 
-            Returns:
-                El nodo que contiene data, o None si no existe.
-            """
-            current = self.head
+        Returns:
+            El nodo que contiene data, o None si no existe.
+        """
+        current = self.head
 
-            while current is not None:
-                if current.data == data:
-                    return current
-                current = current.next
+        while current is not None:
+            if current.data == data:
+                return current
+            current = current.next
 
-            return None
+        return None
