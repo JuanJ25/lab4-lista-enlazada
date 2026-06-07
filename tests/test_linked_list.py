@@ -115,8 +115,8 @@ def test_delete_elemento_inexistente():
 def test_delete_lista_vacia():
     ll = LinkedList()
     assert ll.delete(1) is False
-    assert str(ll) == "1 -> 2 -> 3"
-    assert len(ll) == 3
+    assert str(ll) == "Lista vacía"
+    assert len(ll) == 0
 
 
 # ------------------------------------------------------------------ #

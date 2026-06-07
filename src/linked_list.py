@@ -42,11 +42,13 @@ class LinkedList:
             return False
         if self.head.data == data:
             self.head = self.head.next
+            self.size -= 1
             return True
         current = self.head
         while current.next is not None:
             if current.next.data == data:
                 current.next = current.next.next
+                self.size -= 1
                 return True
             current = current.next
         return False
