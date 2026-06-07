@@ -38,6 +38,22 @@ class LinkedList:
         self.size += 1
 
     def delete(self, data):
+        if self.head is None:
+            return False
+        if self.head.data == data:
+            self.head = self.head.next
+            return True
+        current = self.head
+        while current.next is not None:
+            if current.next.data == data:
+                current.next = current.next.next
+                return True
+            current = current.next
+        return False
+
+    # ------------------------------------------------------------------ #
+    # TODO — Equipo C: rama feature/search                                #
+    # ------------------------------------------------------------------ #
         """Elimina la primera ocurrencia de un elemento."""
         pass
 
