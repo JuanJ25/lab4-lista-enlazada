@@ -42,21 +42,31 @@ class LinkedList:
             return False
         if self.head.data == data:
             self.head = self.head.next
+            self.size -= 1
             return True
         current = self.head
         while current.next is not None:
             if current.next.data == data:
                 current.next = current.next.next
+                self.size -= 1
                 return True
             current = current.next
         return False
 
-    # ------------------------------------------------------------------ #
-    # TODO — Equipo C: rama feature/search                                #
-    # ------------------------------------------------------------------ #
-        """Elimina la primera ocurrencia de un elemento."""
-        pass
-
     def search(self, data):
-        """Busca un elemento en la lista."""
-        pass
+        """Busca un valor en la lista.
+
+        Args:
+            data: El valor a buscar.
+
+        Returns:
+            El nodo que contiene data, o None si no existe.
+        """
+        current = self.head
+
+        while current is not None:
+            if current.data == data:
+                return current
+            current = current.next
+
+        return None
